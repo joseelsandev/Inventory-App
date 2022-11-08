@@ -1,0 +1,142 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+
+
+
+<p id="demo"></p>
+
+
+{% if names  %}
+
+<h1> These are your Databases</h1>
+<h2 class="username">Welcome {{username}}</h2>
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn" type="button" class="btn btn-outline-primary m-4"> Create New Database </button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <form action="{{url_for('inventory')}}" method="POST">
+      
+        
+            <div class="mb-3">  
+              <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="inventoryname" name="inventoryname" placeholder="Inventory Name" type="text">
+
+              
+              </div>
+        <button class="btn btn-primary" type="submit">Create</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<ul class ="navbar-nav" >
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Database Name</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+  {% for name in names %}
+  
+ 
+      <tr class="">
+        <td><li class ="nav-item  pointer" data-id="{{name['name_id']}}" >
+         
+          <a  href="#" class="text-decoration-none db-name "> {{name["name"]}} </a>
+       </li> </td>
+
+       <td><button type="submit" class="delete btn"><i class="fa-solid fa-trash"></i></button></td>
+      </tr>
+
+    
+
+  <!-- <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <li class ="nav-item" data-id="{{name['name_id']}}">
+         
+           <a  href="#" class="text-decoration-none db-name"> {{name["name"]}} </a>
+        </li> 
+      </div>
+      
+       
+      <div class="col-2">
+        
+        <button type="submit" class="delete btn"><i class="fa-solid fa-trash"></i></button>
+    </div>
+
+    </div> 
+
+  </div> -->
+
+  {% endfor %}  
+
+</tbody>
+</table>
+</ul>
+
+
+
+
+
+
+
+{% else %}
+<h1>Welcome {{username}}</h1>
+<h2> Database is Empty </h2>
+<!-- Trigger/Open The Modal -->
+<button id="myBtn"> Create New Database </button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <form action="{{url_for('inventory')}}" method="POST">
+      
+        
+            <div class="mb-3">  
+              <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="inventoryname" name="inventoryname" placeholder="Inventory Name" type="text">
+
+              
+              </div>
+        <button class="btn btn-primary" type="submit">Create</button>
+    </form>
+  </div>
+</div>
+{% endif %}
+
+<script src="{{url_for('static', filename='./JS/index.js')}}" type="module">
+   
+</script>
+
+<!-- <script>
+  console.log("SCRIPT MMG");
+  window.addEventListener("DOMContentLoaded",()=>{
+    document.getElementById("demo").innerHTML = "Hello JavaScript!";
+  }) 
+  </script> -->
+{% endblock %}
+
+

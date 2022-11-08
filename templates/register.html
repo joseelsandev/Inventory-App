@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title%}
+    Register
+{% endblock %}
+
+{% block main %}
+
+   
+    <form action="{{url_for('register')}}" method="POST">
+        
+ 
+        {{ form.csrf_token }}
+        
+
+        <div class="mb-3">  
+      
+        {{form.username(autocomplete="off", class="form-control mx-auto w-auto",placeholder="Username")}}
+        {% for error in form.username.errors %}
+        <p>{{error}} </p> 
+        {% endfor %}
+        </div>
+
+        <div class="mb-3"> 
+        {{form.email(autocomplete="off", class="form-control mx-auto w-auto",placeholder="Email")}}
+        {% for error in form.email.errors %}
+        
+          <p>{{error}} </p>  
+        {% endfor %}
+       </div>
+
+        <div class="mb-3"> 
+        {{form.password(autocomplete="off", class="form-control mx-auto w-auto",placeholder="Password")}}
+        {% for error in form.password.errors %}
+        
+          <p>{{error}} </p>  
+        {% endfor %}
+        </div>
+
+        <div class="mb-3"> 
+        {{form.confirm(autocomplete="off", class="form-control mx-auto w-auto",placeholder="Confirm Password")}}
+        {% for error in form.confirm.errors %}
+        
+          <p>{{error}} </p>  
+        {% endfor %}
+        
+        </div>
+        <div class="mb-3"> 
+        {{ form.recaptcha }}
+        {% for error in form.recaptcha.errors %}
+        
+          <p>{{error}} </p>  
+        {% endfor %}
+      </div>
+        <button class="btn btn-primary" type="submit">Sign in</button>
+  
+          
+         
+    </form>
+{% endblock %}

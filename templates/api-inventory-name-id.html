@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title%}
+    API Inventory Update
+{% endblock %}
+
+
+{% block main %}
+
+<h1>Edit Your Item Here</h1>
+<form action="{{url_for('api_inventory_name_id', name = name, id = id)}}" method="POST">
+        
+ 
+    {{ form.csrf_token }}
+    
+
+    <div class="mb-3"> 
+        {{ form.sku.label }} 
+    {{form.sku(autocomplete="off", class="form-control mx-auto w-auto",placeholder="SKU")}}
+    </div>
+    <div class="mb-3">  
+        {{ form.title.label }} 
+        {{form.title(autocomplete="off", class="form-control mx-auto w-auto",placeholder="Title")}}
+     </div>
+    <div class="mb-3"> 
+        {{ form.location.label }}  
+        {{form.location(autocomplete="off", class="form-control mx-auto w-auto",placeholder="Location")}}
+    </div>
+    <div class="mb-3">  
+        {{ form.quantity.label }} 
+        {{form.quantity(autocomplete="off", class="form-control mx-auto w-auto",placeholder="Quantity")}}
+    </div>
+    <div class="mb-3">  
+        {{ form.price.label }} 
+        {{form.price(autocomplete="off", class="form-control mx-auto w-auto",placeholder="Price")}}
+    </div>
+
+    <button class="btn btn-primary" type="submit" class="edit"><i class="fa-solid fa-plus fa-xl"> </i></button>
+
+      
+     
+</form>
+
+{% endblock %}

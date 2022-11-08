@@ -1,0 +1,160 @@
+/* universal changes start here */
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+
+
+/* universal changes end here */
+
+/* variables declaration start */
+
+:root {
+    --green: #77F296;
+    --white: #F2F2F2;
+    --brown: #735A3D;
+    --red: #BF3E21;
+    --black: #0D0D0D;
+    --darkgrreen: #022326;
+    --orange:#F29422;
+    --darkorange:#D95204;
+    --blue:#3698BF;
+    --darkblue:#164F73;
+    /* Only for Open Modal */
+    --transition: all 0.3s linear;
+  }
+  
+  /* variables declaration end */
+
+/* @media (max-width: 1200px){
+
+.tablet-version{
+    display: block;
+   }
+
+.desktop-version{
+  display: none;
+  
+}
+
+    } */
+    
+/* @media (min-width: 768px){
+    
+    
+    
+    }
+    
+@media (min-width: 1024px){
+    
+    
+    
+    }
+    
+@media (min-width: 1200px){
+    
+  
+    
+    } */
+
+
+
+
+  /* .tablet-version{
+      display: none;
+     } */
+
+
+
+
+
+  
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+  /* Font awesome Icons color */
+
+  .fa-trash{
+    color: var(--red);
+  }
+
+  .fa-trash:hover{
+   
+    color: var(--darkorange);
+   
+  }
+
+  .fa-pen-to-square{
+    color: var(--darkorange);
+  }
+  .fa-pen-to-square:hover{
+   
+    color: var(--red);
+  }
+
+.db-name{
+  color: var(--black);
+}
+
+.db-name:hover{
+  color: var(--darkblue);
+}
+
+.username{
+  text-align: left;
+  margin: 10px ;
+}
+
+
+
+
+.pointer{
+  cursor: pointer;
+}
+/* .pointer:hover{
+  cursor: pointer;
+} */

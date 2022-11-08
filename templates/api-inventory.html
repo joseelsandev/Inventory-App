@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+
+{% block title%}
+    api inventory
+{% endblock %}
+
+{% block main %}
+<h1  data-id={{name}}> You are working on  {{name}} Inventory </h1>
+<div class="table-responsive"> 
+<table class="table table-striped all-versions">
+    <thead>
+      <tr>
+        <th scope="col">Sku</th>
+        <th scope="col">Title </th>
+        <th scope="col">Location  </th>
+        <th scope="col">Quantity  </th>
+        <th scope="col">Price  </th>
+        <th scope="col">Actions  </th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <form action="{{url_for('apiinventory',name = name)}}" method="POST">
+      {{ form.csrf_token }}
+      <tr>
+        <td> {{form.sku(autocomplete="off", class="form-control mx-auto w-auto",placeholder="sku")}}</td>
+        <td>{{form.title(autocomplete="off", class="form-control mx-auto w-auto",placeholder="Title")}}</td>
+        <td>{{form.location(autocomplete="off", class="form-control mx-auto w-auto",placeholder="Location")}}</td>
+        <td>{{form.quantity(autocomplete="off", class="form-control mx-auto w-auto",placeholder="Quantity")}}</td>
+        <td>{{form.price(autocomplete="off", class="form-control mx-auto w-auto",placeholder="Price")}}</td>
+        <!-- <a href="#" class="add"> </a> -->
+        <td> 
+           <button type="submit" class="btn add"><i class="fa-solid fa-plus fa-xl"></i></button> 
+        
+        </td>
+      </tr>
+      </form>
+      {% for d in data %}
+
+      <tr id='{{d["inventory_id"]}}'  class=""> 
+       
+        <td class="sku">{{ d["sku"] }}</td>
+        <td class="title">{{ d["title"] }}</td>
+        <td class="location">{{ d["location"] }}</td>
+        <td>{{ d["quantity"] }}</td>
+        <td>{{ d["price"] }}</td>
+        <!-- <a href="#"> </a> -->
+        <td> 
+          <button type="submit" class="edit btn"><i class="fa-solid fa-pen-to-square fa-xl"></i></button>
+          <button type="submit" class="delete btn"><i class="fa-solid fa-trash"></i></button>
+        </td>
+      </tr>
+      {% endfor %}
+      
+       
+    </tbody>
+  </table>
+
+
+
+  <!-- table version -->
+<!-- <div class="tablet-version"> 
+  <form action="/register" method="post">
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" id="confirmation" name="confirmation" placeholder="Confirm Password" type="password">
+    </div>
+    <button class="btn btn-primary" type="submit">Sign in</button>
+</form>
+
+
+<ul>
+  {% for d in data %}
+  <li class="sku">{{ d["sku"] }}</li>
+  <li class="title">{{ d["title"] }}</li>
+  <li class="location">{{ d["location"] }}</li>
+  <li>{{ d["quantity"] }}</li>
+  <li>{{ d["price"] }}</li>
+  {% endfor %}
+</ul>
+       
+</div>  -->
+
+
+
+
+
+
+
+
+
+</div>
+  <script src="{{url_for('static', filename='./JS/api-inventory.js')}}" type="module">
+   
+  </script>
+  <link href="{{url_for('static', filename='/CSS/api-inventory.css')}}" rel="stylesheet">
+{% endblock %}
